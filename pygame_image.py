@@ -15,23 +15,33 @@ def main():
     kk_rct = kk_img.get_rect() #８－１　工科とんrectを抽出
     kk_rct.center = 300, 200
     
+    kk_mov = kk_rct.move_ip
+    
     bg_img2 = pg.transform.flip(bg_img, True, False)  #練習７ー１
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
+        
+        a = -1
+        b = 0
         if key_lst[pg.K_UP]:        #練習8
             #print("上押された")
-            kk_rct.move_ip((0, -1))
+            a = 0
+            b = -1
         elif key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, 1))
+            a = 0
+            b = 1
         elif key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((1, 0))
+            a = 1
+            b = 0
         elif key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1, 0))
-        else:
-            kk_rct.move_ip((-1, 0))   #演習課題１
+            a = -2
+            b = 0
+              #演習課題１
+            
+        kk_rct.move_ip((a, b))
 
         x = tmr%3200  
         # print(tmr, x)
