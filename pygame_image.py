@@ -30,6 +30,8 @@ def main():
             kk_rct.move_ip((1, 0))
         elif key_lst[pg.K_LEFT]:
             kk_rct.move_ip((-1, 0))
+        else:
+            kk_rct.move_ip((-1, 0))   #演習課題１
 
         x = tmr%3200  
         # print(tmr, x)
@@ -38,7 +40,7 @@ def main():
         
         screen.blit(bg_img, [-x+3600, 0]) #練習７－２
         screen.blit(bg_img2, [-x+4800, 0]) #練習７ー２
-        screen.blit(kk_img, kk_rct)  #練習４ 8
+        screen.blit(kk_img , kk_rct)  #練習４ 8
         pg.display.update()
         tmr += 1        
         clock.tick(200) #練習５
